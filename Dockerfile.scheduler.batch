@@ -1,0 +1,13 @@
+ARG base_img
+
+FROM $base_img
+
+ENV PATH=$PATH:/app
+
+COPY driver.py create_tasks.py run_batch.py /app/
+ADD tasks /app/tasks
+
+RUN apt-get -y update
+RUN apt-get install -y uuid-runtime
+
+WORKDIR /app/

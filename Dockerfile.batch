@@ -1,0 +1,10 @@
+ARG base_img
+
+FROM $base_img
+
+ENV PATH=$PATH:/app
+
+COPY driver.py /app/
+ADD tasks /app/tasks
+
+WORKDIR /app/

@@ -1,0 +1,15 @@
+**/*.conf
+**/*.pickle
+**/*.tgz
+**/*.tar.gz
+**/*.jar
+**/*.zip
+**/kproxy.txt
+**/*.sh
+local_test.sh
+run_batch.sh
+run_aks.sh
+**/__pycache__
+jobs
+aks
+wheels

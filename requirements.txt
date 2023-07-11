@@ -1,0 +1,11 @@
+azure-batch==13.0.0
+azure-common==1.1.28
+azure-core==1.26.4
+azure-identity==1.13.0
+azure-storage-blob==12.16.0
+azure-storage-queue==12.6.0
+azure-keyvault-secrets==4.7.0
+configparser==5.3.0
+joblib==1.2.0
+pandas==1.5.1
+pyspark==3.4.0
