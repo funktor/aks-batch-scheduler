@@ -12,8 +12,9 @@ if __name__ == '__main__':
     parser.add_argument("-t", "--tenant_id", help="client tenant id", type=str)
     parser.add_argument("-f", "--pool_id", help="batch pool id", type=str)
     parser.add_argument("-r", "--batch_url", help="batch account url", type=str)
-    parser.add_argument("-v", "--vm_size", help="pool VM type", type=str)
-    parser.add_argument("-n", "--pool_count", help="pool node count", type=str)
+    parser.add_argument("-v", "--s_vm_size", help="scheduler VM type", type=str)
+    parser.add_argument("-w", "--vm_size", help="pool VM type", type=str)
+    parser.add_argument("-n", "--s_pool_count", help="scheduler node count", type=str)
     parser.add_argument("-i", "--image", help="docker image", type=str)
     parser.add_argument("-l", "--acr_url", help="acr url", type=str)
     parser.add_argument("-m", "--num_tasks", help="number of tasks in job", type=str)
@@ -62,8 +63,8 @@ if __name__ == '__main__':
                     --blob_storage_out_container {args.blob_storage_out_container}'"
         
         batch_obj.create_job_schedule(job_schedule_id, 
-                                      args.vm_size, 
-                                      args.pool_count, 
+                                      args.s_vm_size, 
+                                      args.s_pool_count, 
                                       float(args.job_interval),
                                       args.image, 
                                       "latest", 

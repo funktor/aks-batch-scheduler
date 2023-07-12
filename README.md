@@ -82,7 +82,7 @@ JOB_ID=$(uuidgen)
     --dockerpath Dockerfile.scheduler.batch
 ```
 
-4. Run scheduler for batch (by default scheduler and task pool uses the same vm type, to change the pool vm type edit the run_scheduler_batch.py file to accept additional params for pool vm) :
+4. Run scheduler for batch :
 ```
 python3 run_scheduler_batch.py \
     --batch_key BATCH_ACCOUNT_KEY \
@@ -93,8 +93,9 @@ python3 run_scheduler_batch.py \
     --tenant_id TENANT_ID \
     --pool_id POOL_ID \
     --batch_url BATCH_ACCOUNT_URL \
-    --vm_size SCHEDULER_VM_SIZE \
-    --pool_count SCHEDULER_POOL_SIZE \
+    --s_vm_size SCHEDULER_VM_SIZE \
+    --vm_size TASK_POOL_VM_SIZE \
+    --s_pool_count SCHEDULER_POOL_SIZE \
     --image TASK_IMAGE_NAME \
     --acr_url ACR_ACCOUNT_URL \
     --num_tasks NUM_TASKS \
