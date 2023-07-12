@@ -58,6 +58,29 @@ python3 run_batch.py \
     --blob_storage_out_container BLOB_OUTPUT_CONTAINER
 ```
 
+E.g.
+
+```
+python3 run_batch.py \
+    --job_id $JOB_ID \
+    --batch_key "xxx111" \
+    --acr_user "elon" \
+    --acr_pwd "elon123" \
+    --app_secret "yyy0001" \
+    --app_id "1234" \
+    --tenant_id "abc-123" \
+    --pool_id "sorting-batch" \
+    --batch_url "elon.eastus.batch.azure.com" \
+    --vm_size "Standard_D4s_v3" \
+    --pool_count 10 \
+    --image "elon.azurecr.io/azure-batch-demo" \
+    --acr_url "elon.azurecr.io" \
+    --num_tasks 10 \
+    --blob_storage_url "elonstorage.blob.core.windows.net" \
+    --blob_storage_inp_container "inputdata" \
+    --blob_storage_out_container "outputdata"
+```
+
 # Steps for running jobs with scheduling (Ubuntu + Bash)
 The steps assume that you already have an ACR and a Batch account setup in Azure
 
@@ -104,4 +127,29 @@ python3 run_scheduler_batch.py \
     --blob_storage_out_container BLOB_OUTPUT_CONTAINER \
     --job_schedule_id JOB_SCHEDULE_ID \
     --job_interval JOB_INTERVAL_IN_SECS
+```
+
+E.g.
+
+```
+python3 run_scheduler_batch.py \
+    --batch_key "xxx111" \
+    --acr_user "elon" \
+    --acr_pwd "elon123" \
+    --app_secret "yyy0001" \
+    --app_id "1234" \
+    --tenant_id "abc-123" \
+    --pool_id "sorting-batch" \
+    --batch_url "elon.eastus.batch.azure.com" \
+    --s_vm_size "Standard_D4s_v3" \
+    --vm_size "Standard_D4s_v3" \
+    --s_pool_count 1 \
+    --image "elon.azurecr.io/azure-batch-scheduler-demo" \
+    --acr_url "elon.azurecr.io" \
+    --num_tasks 10 \
+    --blob_storage_url "elonstorage.blob.core.windows.net" \
+    --blob_storage_inp_container "inputdata" \
+    --blob_storage_out_container "outputdata" \
+    --job_schedule_id "job-scheduler-new" \
+    --job_interval 60
 ```
