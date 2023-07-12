@@ -5,14 +5,14 @@ class Task:
         self.data = data
         self.output_file = output_file
     
-    def run(self, app_id:str, tenant_id:str, app_secret:str):
+    def run(self):
         output = sorted(self.data)
         with open(self.output_file, 'w') as f:
             f.write(output)
 
-def create_tasks(params:dict={}): 
+def create_tasks(): 
     num_tasks = 10
-    arr = [random.randint(1, 1000) for i in range(100)]
+    arr = [random.randint(1, 10000) for i in range(1000000)]
     part_size = int(math.ceil(len(arr)/num_tasks))
     
     all_tasks = []

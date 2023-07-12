@@ -1,4 +1,4 @@
-from tasks import spark_task_batch as mytask
+from tasks import task as mytask
 import argparse
 import create_task_helper as cth
         

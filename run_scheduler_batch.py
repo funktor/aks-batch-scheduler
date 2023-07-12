@@ -53,7 +53,7 @@ if __name__ == '__main__':
                     --pool_id {args.pool_id} \
                     --batch_url {args.batch_url} \
                     --vm_size {args.vm_size} \
-                    --pool_count {args.pool_count} \
+                    --pool_count {args.num_tasks} \
                     --image {args.image} \
                     --acr_url {args.acr_url} \
                     --num_tasks {args.num_tasks} \
