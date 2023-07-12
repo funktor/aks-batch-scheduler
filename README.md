@@ -13,12 +13,16 @@ JOB_ID=$(uuidgen)
 
 3. Build and push the base docker image (in order to change the image name edit the file containerize_batch_base.sh) : 
 ```
-./containerize_batch_base.sh --registry acr_registry_username.azurecr.io
+./containerize_batch_base.sh \
+    --registry acr_registry_username.azurecr.io
 ```
 
 3. Build and push the base docker image (in order to change the image name edit the file containerize_batch_base.sh and containerize_batch.sh) : 
 ```
-./containerize_batch.sh --registry acr_registry_username.azurecr.io --image task_acr_image_name --dockerpath Dockerfile.batch
+./containerize_batch.sh \
+    --registry acr_registry_username.azurecr.io \
+    --image task_acr_image_name \
+    --dockerpath Dockerfile.batch
 ```
 
 4. Create task(s) : 
@@ -41,6 +45,7 @@ python3 run_batch.py \
     --acr_pwd ACR_PASSWORD \
     --app_secret APP_SECRET \
     --tenant_id TENANT_ID \
+    --app_id APP_ID \
     --pool_id POOL_ID \
     --batch_url BATCH_ACCOUNT_URL \
     --vm_size VM_SIZE \
@@ -65,12 +70,16 @@ JOB_ID=$(uuidgen)
 
 3. Build and push the base docker image (in order to change the image name edit the file containerize_batch_base.sh and containerize_batch.sh) : 
 ```
-./containerize_batch_base.sh --registry acr_registry_username.azurecr.io
+./containerize_batch_base.sh \
+    --registry acr_registry_username.azurecr.io
 ```
 
 3. Build and push the docker image for your task : 
 ```
-./containerize_batch.sh --registry acr_registry_username.azurecr.io --image task_acr_image_name --dockerpath Dockerfile.scheduler.batch
+./containerize_batch.sh \
+    --registry acr_registry_username.azurecr.io \
+    --image task_acr_image_name \
+    --dockerpath Dockerfile.scheduler.batch
 ```
 
 4. Run scheduler for batch (by default scheduler and task pool uses the same vm type, to change the pool vm type edit the run_scheduler_batch.py file to accept additional params for pool vm) :
