@@ -10,7 +10,7 @@ if __name__ == '__main__':
     parser.add_argument("-s", "--app_secret", help="Client app secret", type=str)
     parser.add_argument("-u", "--blob_storage_url", help="Blob storage container URL", type=str)
     parser.add_argument("-i", "--blob_storage_inp_container", help="Blob storage container to store task inputs", type=str)
-    parser.add_argument("-o", "--blob_storage_op_container", help="Blob storage container to store task outputs", type=str)
+    parser.add_argument("-o", "--blob_storage_out_container", help="Blob storage container to store task outputs", type=str)
     
     args = parser.parse_args()
     
@@ -25,6 +25,6 @@ if __name__ == '__main__':
            args.app_secret, 
            args.blob_storage_url, 
            args.blob_storage_inp_container, 
-           args.blob_storage_op_container)
+           args.blob_storage_out_container)
     
     print("Done")

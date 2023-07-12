@@ -34,10 +34,29 @@ if __name__ == '__main__':
     try:
         command = f"/bin/bash -c \
             'cd /app && \
-                python batch_executor.py \
+                JOB_ID=$(uuidgen) && \
+                python create_tasks.py \
+                    --job_id $JOB_ID \
                     --app_id {args.app_id} \
                     --tenant_id {args.tenant_id} \
                     --app_secret {args.app_secret} \
+                    --blob_storage_url {args.blob_storage_url} \
+                    --blob_storage_container {args.blob_storage_inp_container} && \
+                python run_batch.py \
+                    --job_id $JOB_ID \
+                    --batch_key {args.batch_key} \
+                    --acr_user {args.acr_user} \
+                    --acr_pwd {args.acr_pwd} \
+                    --app_secret {args.app_secret} \
+                    --app_id {args.app_id} \
+                    --tenant_id {args.tenant_id} \
+                    --pool_id {args.pool_id} \
+                    --batch_url {args.batch_url} \
+                    --vm_size {args.vm_size} \
+                    --pool_count {args.pool_count} \
+                    --image {args.image} \
+                    --acr_url {args.acr_url} \
+                    --num_tasks {args.num_tasks} \
                     --blob_storage_url {args.blob_storage_url} \
                     --blob_storage_inp_container {args.blob_storage_inp_container} \
                     --blob_storage_out_container {args.blob_storage_out_container}'"

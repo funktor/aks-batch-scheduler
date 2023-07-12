@@ -21,7 +21,7 @@ if __name__ == '__main__':
     parser.add_argument("-m", "--num_tasks", help="number of tasks in job", type=str)
     parser.add_argument("-x", "--blob_storage_url", help="Blob storage container URL", type=str)
     parser.add_argument("-y", "--blob_storage_inp_container", help="Blob storage container to store task inputs", type=str)
-    parser.add_argument("-z", "--blob_storage_op_container", help="Blob storage container to store task outputs", type=str)
+    parser.add_argument("-z", "--blob_storage_out_container", help="Blob storage container to store task outputs", type=str)
     
     args = parser.parse_args()
     
@@ -56,7 +56,7 @@ if __name__ == '__main__':
                     --app_secret {args.app_secret} \
                     --blob_storage_url {args.blob_storage_url} \
                     --blob_storage_inp_container {args.blob_storage_inp_container} \
-                    --blob_storage_op_container {args.blob_storage_op_container}\""]
+                    --blob_storage_out_container {args.blob_storage_out_container}\""]
         
         batch_obj.add_tasks(args.image, "latest", job_id, 
                             commands)
